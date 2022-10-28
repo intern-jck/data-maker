@@ -1,0 +1,163 @@
+.TextInput {
+  border: 4px solid black;
+  padding: 4px;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.TextInput input {
+  font-size: x-large;
+}
+
+.TextArea {
+  border: 4px solid black;
+  padding: 4px;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.TextArea textarea {
+  font-size: x-large;
+}
+
+.DateInput {
+  border: 4px solid black;
+  padding: 4px;
+  width: 100%;
+  font-size: large;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+.date-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row ;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date-row span {
+  width: 10em;
+}
+
+.DateInput label {
+  width: 10em;
+}
+
+.DateInput select {
+  width: 100%;
+}
+
+.TagInput {
+  border: 4px solid black;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.TagInput label {
+  /* override the styles from TextInput */
+  border: 4px solid white;
+  width: 90%;
+}
+
+.form-tag-input {
+  /* border: 4px solid green; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add-tag-btn {
+  /* border: 4px solid green; */
+  height: 100%;
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-tag-list {
+  border: 4px solid black;
+  height: 12vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+.form-tag-list a {
+  border: 4px solid black;
+  height: 2em;
+  padding: 4px;
+  text-decoration: none;
+  font-size: large;
+}
+
+
+.PhotoInput {
+  border: 4px solid black;
+  padding: 4px;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.PhotoInput label {
+  /* override the styles from TextInput */
+  border: 4px solid white;
+  width: 90%;
+}
+
+.form-photo-input {
+  /* border: 4px solid blue; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add-photo-btn {
+  /* border: 4px solid green; */
+  height: 100%;
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-photo-list {
+  border: 4px solid black;
+  padding: 1em;
+  /* height: 50%; */
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.form-photo-thumb {
+  border: 4px solid black;
+  width: 8em;
+  height: 8em;
+}
+
+.form-photo-thumb img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
