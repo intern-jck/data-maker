@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
-import Form from './components/Form/Form.jsx';
+// import Form from './components/Form/Form.jsx';
+import FakeForm from './components/FakeForm/FakeForm.jsx';
+
 import './App.css';
 
 const SERVER_URL = 'http://127.0.0.1:3000';
@@ -57,6 +59,7 @@ const App = () => {
 
   // DELETE
   const deleteProject = (id) => {
+    console.log('DELETING:', id);
     axios.delete(`${SERVER_URL}/project?id=${id}`)
     .then((response) => {
       console.log('delete project', response.data)
@@ -76,7 +79,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar createHandler={createProject} deleteHandler={deleteProject} />
+      <Navbar createHandler={createProject} deleteHandler={deleteProject}/>
       {
         projects ?
         <Dashboard projects={projects} viewHandler={viewProject} /> :
@@ -84,7 +87,7 @@ const App = () => {
       }
       {
         currentProject ?
-        <Form
+        <FakeForm
           project={currentProject}
           submitHandler={updateProject}
           deleteHandler={deleteProject}

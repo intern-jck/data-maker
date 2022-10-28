@@ -7,10 +7,11 @@ const Dashboard = ({projects, viewHandler}) => {
   const [selectedProject, setSelectedProject] = useState({});
 
   const selectProject = (event) => {
-    const id = event.target.getAttribute('data-doc-id');
-    if (id) {
-      setSelectedProject(projects[id]);
-      viewHandler(id);
+    const projectIndex = event.target.getAttribute('data-project-index');
+    console.log(projectIndex);
+    if (projectIndex) {
+      setSelectedProject(projects[projectIndex]);
+      viewHandler(projectIndex);
     }
   };
 
@@ -23,9 +24,9 @@ const Dashboard = ({projects, viewHandler}) => {
       {
         projects.map((project, i) => (
           <div key={project._id}>
-            <div key={i} className='dash-doc-folder' onClick={selectProject}>
-              <CgFolder className='onclick' size={100} data-doc-id={i} />
-              {project.name}
+            <div key={project._id} className='dash-project-folder' onClick={selectProject}>
+              <CgFolder className='onclick' size={100} data-project-index={i} />
+              {project._id.slice(0, 8)}
             </div>
           </div>
         ))

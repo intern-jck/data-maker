@@ -1,26 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {faker} from '@faker-js/faker';
+import FakeName from './FakeFormComponents/FakeName.jsx';
+import './FakeForm.css';
+import './FakeFormComponents/FakeFormComponents.css';
 
-import TextInput from './FormComponents/TextInput.jsx';
-// import TextArea from './FormComponents/TextArea.jsx';
-// import DateInput from './FormComponents/DateInput.jsx';
-// import TagInput from './FormComponents/TagInput.jsx';
-// import PhotoInput from './FormComponents/PhotoInput.jsx';
-
-import './Form.css';
-import './FormComponents/FormComponents.css';
-
-const Form = ({project, submitHandler, deleteHandler}) => {
-  // console.log('FORM GOT:', project.name)
-
+const FakeForm = ({project, submitHandler, deleteHandler}) => {
   const [formData, setFormData] = useState(project);
-  // const [newDate, setNewDate] = useState({});
-  // const [newTech, setNewTech] = useState('');
-  // const [newPhoto, setNewPhoto] = useState('');
-  // console.log(formData)
 
   useEffect(() => {
-    console.log('SETTING PROJECT')
     setFormData(project);
   }, [project]);
 
@@ -32,9 +19,7 @@ const Form = ({project, submitHandler, deleteHandler}) => {
 
   const deleteForm = (event) => {
     event.preventDefault();
-    console.log('DELETE:', project._id)
     deleteHandler(project._id);
-
   }
 
   const inputChange = (event) => {
@@ -99,7 +84,8 @@ const Form = ({project, submitHandler, deleteHandler}) => {
 
   {/* Delete */}
   return (
-    <div className='Form'>
+    <div className='FakeForm'>
+
       <label id='submit-form-label' htmlFor='submit-form-btn'>
         SAVE
       </label>
@@ -111,18 +97,13 @@ const Form = ({project, submitHandler, deleteHandler}) => {
       <h2>_id: {formData._id}</h2>
       <form onSubmit={submitForm}>
         <button type='submit' id='submit-form-btn' />
-        {/* Project Info */}
         <div className='form-section'>
-          <TextInput
-            id={'form-name'}
-            name={'name'}
-            value={formData.name ? formData.name : ''}
-            changeHandler={inputChange}
-          />
+          <FakeName generator={faker.name.fullName}/>
         </div>
       </form>
+
     </div>
   );
 };
 
-export default Form;
+export default FakeForm;
