@@ -9,6 +9,8 @@ const PORT = process.env.PORT;
 
 const {createProject, getProjects, updateProject, deleteProject} = require('./controller/controller.js');
 
+app.get('/', (req, res) => (res.sendStatus(200)));
+
 // CREATE
 app.post('/create', (req, res) => {
   console.log('New Project: ', req.body);
@@ -17,7 +19,7 @@ app.post('/create', (req, res) => {
     .catch((error) => (console.log('post error', error)));
 });
 
-// // READ
+// READ
 app.get('/projects', (req, res) => {
   getProjects()
   .then((data) => {
@@ -26,7 +28,7 @@ app.get('/projects', (req, res) => {
   .catch((error) => (res.send(error)));
 });
 
-// // UPDATE
+// UPDATE
 app.put('/project', (req, res) => {
   // console.log(req.body);
   updateProject(req.body)
@@ -34,6 +36,7 @@ app.put('/project', (req, res) => {
     .catch((error) => (console.log('put error', error)));
 });
 
+// DELETE
 app.delete('/project', (req, res) => {
   console.log(req.query.id)
   deleteProject(req.query.id)

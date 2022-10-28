@@ -57,7 +57,6 @@ const App = () => {
 
   // DELETE
   const deleteProject = (id) => {
-    console.log('DELETING:', id);
     axios.delete(`${SERVER_URL}/project?id=${id}`)
     .then((response) => {
       console.log('delete project', response.data)
@@ -77,7 +76,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar createHandler={createProject} deleteHandler={deleteProject}/>
+      <Navbar createHandler={createProject} deleteHandler={deleteProject} />
       {
         projects ?
         <Dashboard projects={projects} viewHandler={viewProject} /> :

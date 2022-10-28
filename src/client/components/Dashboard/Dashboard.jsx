@@ -2,32 +2,30 @@ import React, {useState, useEffect} from 'react';
 import {CgFolder} from 'react-icons/cg';
 import './Dashboard.css';
 
-const Dashboard = ({documents, viewHandler}) => {
-  // console.log('DASHBOARD GOT:', documents);
-  const [showDocuments, setShowDocuments] = useState(true);
-  const [documentsList, setDocumentsList] = useState(documents);
-  const [selectedDocument, setSelectedDocument] = useState({});
+const Dashboard = ({projects, viewHandler}) => {
+  const [showProjects, setShowProjects] = useState(true);
+  const [selectedProject, setSelectedProject] = useState({});
 
-  const selectDocument = (event) => {
+  const selectProject = (event) => {
     const id = event.target.getAttribute('data-doc-id');
     if (id) {
-      setSelectedDocument(documents[id]);
+      setSelectedProject(projects[id]);
       viewHandler(id);
     }
   };
 
-  const toggleDocuments = () => {
-    setShowDocuments(!showDocuments);
+  const toggleProjects = () => {
+    setShowProjects(!showProjects);
   };
 
   return (
     <div className='Dashboard'>
       {
-        documents.map((project, i) => (
+        projects.map((project, i) => (
           <div key={project._id}>
-            <div key={i} className='dash-doc-folder' onClick={selectDocument}>
+            <div key={i} className='dash-doc-folder' onClick={selectProject}>
               <CgFolder className='onclick' size={100} data-doc-id={i} />
-              {project._id}
+              {project.name}
             </div>
           </div>
         ))
